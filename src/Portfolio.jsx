@@ -111,6 +111,7 @@ function Hero() {
     "Aspiring FullStack Developer",
     "Backend Developer",
     "API Specialist",
+    "Freelancer",
   ];
 
   useEffect(() => {
@@ -325,9 +326,7 @@ function About() {
             <div className="space-y-6">
               <p className="text-xl text-gray-300 leading-relaxed">
                 Hi, I'm Pallavi a dedicated{" "}
-                <span className="text-blue-400 font-semibold">
-                  Developer
-                </span>{" "}
+                <span className="text-blue-400 font-semibold">Developer</span>{" "}
                 who enjoys building practical and reliable applications. I focus
                 on writing clean code, understanding real needs, and creating
                 solutions that actually help users.
@@ -338,7 +337,11 @@ function About() {
                 <span className="text-purple-400 font-semibold">
                   MERN stack
                 </span>{" "}
-                and have experience in deploying projects on{" "}
+                and also work as a{" "}
+                <span className="text-purple-400 font-semibold">
+                  Freelancer
+                </span>{" "}
+                . I have experience in deploying projects on{" "}
                 <span className="text-green-400 font-semibold">AWS</span>. My
                 interest in development started with a simple curiosity to
                 understand how things work, and it has grown into a meaningful
@@ -509,8 +512,6 @@ function About() {
             </div>
           ))}
         </div>
-
-     
       </div>
     </section>
   );
