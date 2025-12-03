@@ -356,17 +356,25 @@ function About() {
               </p>
 
               <div className="flex flex-wrap gap-4 pt-6">
-                <a
+                {/* <a
                   href="#"
                   onClick={(e) => {
                     e.preventDefault();
                     const link = document.createElement("a");
-                    link.href = "/resume.pdf";
+                    link.href = "pallavi_bhasme_resume.pdf";
                     link.download = "Pallavi_Bhasme_Resume.pdf";
                     link.click();
                   }}
                   className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold hover:shadow-2xl hover:shadow-blue-500/50 transition-all flex items-center gap-3"
-                >
+                > */}
+                <a
+                  href="/pallavi_Bhasme_resume.pdf"
+                  download="Pallavi_Bhasme_Resume.pdf"
+                  className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold hover:shadow-2xl hover:shadow-blue-500/50 transition-all flex items-center gap-3"
+                  >
+                  {/* Download Resume */}
+                  
+
                   <svg
                     className="w-5 h-5"
                     fill="none"
