@@ -1,8 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, MapPin, Phone, ExternalLink, ArrowUpRight, Terminal, Code2, Database, Sparkles, Moon, Sun } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+  ExternalLink,
+  ArrowUpRight,
+  Terminal,
+  Code2,
+  Database,
+  Sparkles,
+  Moon,
+  Sun,
+} from "lucide-react";
 
 // Add custom CSS for animations
-const style = document.createElement('style');
+const style = document.createElement("style");
 style.textContent = `
   @keyframes fadeInUp {
     from {
@@ -58,40 +72,65 @@ function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
     if (darkMode) {
-      document.documentElement.classList.add('dark');
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.remove("dark");
     }
   }, [darkMode]);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      scrolled ? 'bg-black/50 backdrop-blur-xl border-b border-white/10' : 'bg-transparent'
-    }`}>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-black/50 backdrop-blur-xl border-b border-white/10"
+          : "bg-transparent"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-6">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg">PB</span>
             </div>
-            <span className="text-white font-semibold text-lg hidden sm:block">Pallavi Bhasme</span>
+            <span className="text-white font-semibold text-lg hidden sm:block">
+              Pallavi Bhasme
+            </span>
           </div>
-          
+
           <div className="flex items-center gap-6">
-            <a href="#work" className="text-gray-400 hover:text-white transition-colors text-sm font-medium hidden md:block">Work</a>
-            <a href="#about" className="text-gray-400 hover:text-white transition-colors text-sm font-medium hidden md:block">About</a>
-            <a href="#contact" className="text-gray-400 hover:text-white transition-colors text-sm font-medium hidden md:block">Contact</a>
-            <button 
+            <a
+              href="#work"
+              className="text-gray-400 hover:text-white transition-colors text-sm font-medium hidden md:block"
+            >
+              Work
+            </a>
+            <a
+              href="#about"
+              className="text-gray-400 hover:text-white transition-colors text-sm font-medium hidden md:block"
+            >
+              About
+            </a>
+            <a
+              href="#contact"
+              className="text-gray-400 hover:text-white transition-colors text-sm font-medium hidden md:block"
+            >
+              Contact
+            </a>
+            <button
               onClick={() => setDarkMode(!darkMode)}
               className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
             >
-              {darkMode ? <Sun size={18} className="text-white" /> : <Moon size={18} className="text-white" />}
+              {darkMode ? (
+                <Sun size={18} className="text-white" />
+              ) : (
+                <Moon size={18} className="text-white" />
+              )}
             </button>
           </div>
         </div>
@@ -103,10 +142,10 @@ function Navbar() {
 // Hero Component
 function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [typedText, setTypedText] = useState('');
+  const [typedText, setTypedText] = useState("");
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  
+
   const roles = [
     "Aspiring FullStack Developer",
     "Backend Developer",
@@ -118,18 +157,18 @@ function Hero() {
     const handleMouseMove = (e) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   useEffect(() => {
     const currentRole = roles[currentRoleIndex];
     const typingSpeed = isDeleting ? 50 : 100;
-    
+
     const timer = setTimeout(() => {
       if (!isDeleting && typedText === currentRole) {
         setTimeout(() => setIsDeleting(true), 2000);
-      } else if (isDeleting && typedText === '') {
+      } else if (isDeleting && typedText === "") {
         setIsDeleting(false);
         setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
       } else {
@@ -148,10 +187,10 @@ function Hero() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-black"></div>
-      <div 
+      <div
         className="absolute inset-0 opacity-30"
         style={{
-          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(59, 130, 246, 0.15), transparent 40%)`
+          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(59, 130, 246, 0.15), transparent 40%)`,
         }}
       ></div>
 
@@ -182,33 +221,53 @@ function Hero() {
         </div>
 
         <p className="text-lg md:text-xl text-gray-500 max-w-3xl mx-auto mb-12 leading-relaxed">
-          Crafting scalable, high-performance web applications with modern technologies.
-          Specializing in <span className="text-blue-400 font-semibold">Node.js</span>, 
-          <span className="text-purple-400 font-semibold" > React</span>, and 
+          Crafting scalable, high-performance web applications with modern
+          technologies. Specializing in{" "}
+          <span className="text-blue-400 font-semibold">Node.js</span>,
+          <span className="text-purple-400 font-semibold"> React</span>, and
           <span className="text-green-400 font-semibold"> Databasess</span>.
         </p>
 
         <div className="flex flex-wrap justify-center gap-4">
-          <a href="#contact" className="group px-8 py-4 bg-white text-black rounded-full font-semibold hover:bg-gray-100 transition-all flex items-center gap-2">
+          <a
+            href="#contact"
+            className="group px-8 py-4 bg-white text-black rounded-full font-semibold hover:bg-gray-100 transition-all flex items-center gap-2"
+          >
             Let's Talk
-            <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            <ArrowUpRight
+              size={20}
+              className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+            />
           </a>
-          <a href="#work" className="px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 text-white rounded-full font-semibold hover:bg-white/10 transition-all">
+          <a
+            href="#work"
+            className="px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 text-white rounded-full font-semibold hover:bg-white/10 transition-all"
+          >
             View Work
           </a>
         </div>
 
         <div className="flex justify-center items-center gap-6 mt-16">
-          <a href="https://github.com/pallavibhasme" target="_blank" rel="noopener noreferrer" 
-             className="p-3 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 transition-all hover:scale-110">
+          <a
+            href="https://github.com/pallavibhasme"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 transition-all hover:scale-110"
+          >
             <Github size={22} className="text-white" />
           </a>
-          <a href="https://linkedin.com/in/pallavi-bhasme-653bb8201" target="_blank" rel="noopener noreferrer"
-             className="p-3 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 transition-all hover:scale-110">
+          <a
+            href="https://linkedin.com/in/pallavi-bhasme-653bb8201"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 transition-all hover:scale-110"
+          >
             <Linkedin size={22} className="text-white" />
           </a>
-          <a href="mailto:pallavibhasme13@gmail.com"
-             className="p-3 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 transition-all hover:scale-110">
+          <a
+            href="mailto:pallavibhasme13@gmail.com"
+            className="p-3 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 transition-all hover:scale-110"
+          >
             <Mail size={22} className="text-white" />
           </a>
         </div>
@@ -217,7 +276,6 @@ function Hero() {
           <span className="flex items-center gap-2">
             <MapPin size={16} /> Nagpur, Maharashtra
           </span>
-          
         </div>
       </div>
 
@@ -233,12 +291,19 @@ function Hero() {
 
 // About Component
 // Scrolling Text Component
-function ScrollingText({ text, direction = 'left' }) {
+function ScrollingText({ text, direction = "left" }) {
   return (
     <div className="overflow-hidden whitespace-nowrap py-6 border-y border-white/10">
-      <div className={`inline-block ${direction === 'left' ? 'animate-scroll-left' : 'animate-scroll-right'}`}>
+      <div
+        className={`inline-block ${
+          direction === "left" ? "animate-scroll-left" : "animate-scroll-right"
+        }`}
+      >
         {[...Array(20)].map((_, i) => (
-          <span key={i} className="text-4xl md:text-6xl font-bold text-white/5 mx-8">
+          <span
+            key={i}
+            className="text-4xl md:text-6xl font-bold text-white/5 mx-8"
+          >
             {text}
           </span>
         ))}
@@ -251,7 +316,7 @@ function ScrollingText({ text, direction = 'left' }) {
 function About() {
   const [visibleCards, setVisibleCards] = useState([]);
   const [copied, setCopied] = useState(false);
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -265,14 +330,14 @@ function About() {
       { threshold: 0.1 }
     );
 
-    const cards = document.querySelectorAll('.skill-card');
+    const cards = document.querySelectorAll(".skill-card");
     cards.forEach((card) => observer.observe(card));
 
     return () => observer.disconnect();
   }, []);
 
   const copyEmail = () => {
-    navigator.clipboard.writeText('pallavibhasme13@gmail.com');
+    navigator.clipboard.writeText("pallavibhasme13@gmail.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -368,13 +433,11 @@ function About() {
                   className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold hover:shadow-2xl hover:shadow-blue-500/50 transition-all flex items-center gap-3"
                 > */}
                 <a
-                  href="/pallavi_Bhasme_resume.pdf"
-                  download="Pallavi_Bhasme_Resume.pdf"
+                  href="/Pallavi_Bhasme_Full_Stack_Dev.pdf"
+                  download="Pallavi_Bhasme_Full_Stack_Dev.pdf"
                   className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold hover:shadow-2xl hover:shadow-blue-500/50 transition-all flex items-center gap-3"
-                  >
+                >
                   {/* Download Resume */}
-                  
-
                   <svg
                     className="w-5 h-5"
                     fill="none"
@@ -531,7 +594,9 @@ function Experience() {
     <section className="py-32 bg-black">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="mb-20">
-          <h2 className="text-sm uppercase tracking-widest text-gray-500 mb-4">JOURNEY</h2>
+          <h2 className="text-sm uppercase tracking-widest text-gray-500 mb-4">
+            JOURNEY
+          </h2>
           <h3 className="text-5xl md:text-7xl font-bold text-white mb-8">
             Professional Experience
           </h3>
@@ -545,29 +610,44 @@ function Experience() {
                 CURRENT
               </span>
             </div>
-            
+
             <div className="mb-6">
-              <h4 className="text-3xl font-bold text-white mb-2">Backend Developer Intern</h4>
+              <h4 className="text-3xl font-bold text-white mb-2">
+                Backend Developer Intern
+              </h4>
               <p className="text-xl text-blue-400 mb-2">Teknosolve</p>
-              <p className="text-gray-500">July 2025 - Present • Remote</p>
+              <p className="text-gray-500">July 2025 - Dec 2025 • Remote</p>
             </div>
 
             <div className="space-y-3 text-gray-400">
               <p className="flex gap-3">
                 <span className="text-blue-500 mt-1">▹</span>
-                <span>Architecting and developing AI-Powered Interview Preparation Platform using Node.js, Express.js, and MySQL</span>
+                <span>
+                  • Built and maintained 30+ RESTful APIs using Node.js,
+                  Express.js, and MySQL for an AI interview preparation
+                  platform.
+                </span>
               </p>
               <p className="flex gap-3">
                 <span className="text-blue-500 mt-1">▹</span>
-                <span>Building scalable RESTful APIs handling user profiles, interview simulations, and real-time analytics</span>
+                <span>
+                  RESTful APIs handling user profiles, interview simulations,
+                  and real-time analytics
+                </span>
               </p>
               <p className="flex gap-3">
                 <span className="text-blue-500 mt-1">▹</span>
-                <span>Designing optimized database schemas and implementing efficient SQL queries for real-time data processing</span>
+                <span>
+                  Designing optimized database schemas and implementing
+                  efficient SQL queries for real-time data processing
+                </span>
               </p>
               <p className="flex gap-3">
                 <span className="text-blue-500 mt-1">▹</span>
-                <span>Implementing secure authentication, session management, and role-based access control</span>
+                <span>
+                  Implementing secure authentication, session management, and
+                  role-based access control
+                </span>
               </p>
             </div>
           </div>
@@ -575,8 +655,12 @@ function Experience() {
           {/* Education */}
           <div className="p-8 bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 rounded-2xl">
             <div className="mb-6">
-              <h4 className="text-3xl font-bold text-white mb-2">Bachelor of Engineering</h4>
-              <p className="text-xl text-purple-400 mb-2">Information Technology</p>
+              <h4 className="text-3xl font-bold text-white mb-2">
+                Bachelor of Engineering
+              </h4>
+              <p className="text-xl text-purple-400 mb-2">
+                Information Technology
+              </p>
               <p className="text-gray-400">Nagpur Institute of Technology</p>
               <p className="text-gray-500">2019 - 2023</p>
             </div>
@@ -584,15 +668,21 @@ function Experience() {
 
           {/* Certifications */}
           <div className="p-8 bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 rounded-2xl">
-            <h4 className="text-2xl font-bold text-white mb-6">Certifications</h4>
+            <h4 className="text-2xl font-bold text-white mb-6">
+              Certifications
+            </h4>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="flex items-center gap-3 p-4 bg-white/5 rounded-xl">
                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                <span className="text-gray-300">MERN Stack Development</span>
+                <span className="text-gray-300">
+                  MERN Stack Development - CodeHelp
+                </span>
               </div>
               <div className="flex items-center gap-3 p-4 bg-white/5 rounded-xl">
                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                <span className="text-gray-300">Object Oriented Thinking in Python</span>
+                <span className="text-gray-300">
+                  Object Oriented Thinking in Python - SP Classes
+                </span>
               </div>
             </div>
           </div>
@@ -620,7 +710,7 @@ function Projects() {
       { threshold: 0.1 }
     );
 
-    const projectCards = document.querySelectorAll('.project-card');
+    const projectCards = document.querySelectorAll(".project-card");
     projectCards.forEach((card) => observer.observe(card));
 
     return () => observer.disconnect();
@@ -628,79 +718,102 @@ function Projects() {
 
   const projects = [
     {
-      title: 'IT PRECISION',
-      category: 'Full Stack • AWS Deployment',
-      description: 'Enterprise-grade company portfolio with advanced AWS infrastructure, custom CMS, and real-time form processing.',
-      tech: ['Node.js', 'Express.js', 'MySQL', 'AWS EC2', 'CloudFront', 'Route 53', 'SSL/TLS', 'Nginx'],
+      title: "IT PRECISION",
+      category: "Freelance • AWS Deployment",
+      description:
+        "Enterprise-grade company portfolio with advanced AWS infrastructure, and real-time form processing.",
+      tech: ["React.js", "Tailwind CSS", "SSL/TLS", "Nginx"],
       highlights: [
-        'Deployed on AWS EC2 with CloudFront CDN for global performance',
-        'Custom backend API with MySQL for dynamic content management',
-        'Implemented SSL/TLS encryption and custom domain routing',
-        'Optimized for 99.9% uptime with auto-scaling capabilities'
+        "Developed a responsive static website using React.js and Tailwind CSS for a client-facing online presence.",
+        "Translated business requirements into clean, reusable UI components.",
+        "Focus on usability and consistency ensured cross-device compatibility",
+        "Deployed the application on AWS and secured it with HTTPS by issuing and attaching an SSL certificate.",
       ],
-      gradient: 'from-blue-600 to-purple-600'
+      gradient: "from-blue-600 to-purple-600",
     },
     {
-      title: 'STUDYNOTION',
-      category: 'EdTech Platform • MERN Stack',
-      description: 'Complete learning management system with course marketplace, payment integration, and interactive learning features.',
-      tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS', 'JWT', 'Razorpay'],
-      highlights: [
-        'Built comprehensive course creation and management system',
-        'Integrated secure payment gateway for course enrollment',
-        'Implemented role-based authentication (Student/Instructor/Admin)',
-        'Real-time progress tracking and rating system'
+      title: "STUDYNOTION",
+      category: "EdTech Platform • MERN Stack",
+      description:
+        "Complete learning management system with course marketplace, payment integration, and interactive learning features.",
+      tech: [
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Tailwind CSS",
+        "JWT",
       ],
-      link: 'https://github.com/pallavibhasme/StudyNotion_.git',
-      gradient: 'from-purple-600 to-pink-600'
-    }
+      highlights: [
+        "Built comprehensive course creation and management system",
+        "Integrated secure payment gateway for course enrollment",
+        "Implemented role-based authentication (Student/Instructor/Admin)",
+        "Real-time progress tracking and rating system",
+      ],
+      link: "https://github.com/pallavibhasme/StudyNotion_.git",
+      gradient: "from-purple-600 to-pink-600",
+    },
   ];
 
   return (
-    <section id="work" className="py-32 bg-gradient-to-b from-black via-gray-900 to-black">
+    <section
+      id="work"
+      className="py-32 bg-gradient-to-b from-black via-gray-900 to-black"
+    >
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="mb-20">
-          <h2 className="text-sm uppercase tracking-widest text-gray-500 mb-4">PORTFOLIO</h2>
+          <h2 className="text-sm uppercase tracking-widest text-gray-500 mb-4">
+            PORTFOLIO
+          </h2>
           <h3 className="text-5xl md:text-7xl font-bold text-white mb-8">
             Featured Projects
           </h3>
           <p className="text-xl text-gray-400 max-w-3xl">
-            A showcase of my recent work, demonstrating expertise in full-stack development, 
-            cloud architecture, and modern web technologies.
+            A showcase of my recent work, demonstrating expertise in full-stack
+            development, cloud architecture, and modern web technologies.
           </p>
         </div>
 
         <div className="space-y-12">
           {projects.map((project, index) => (
-            <div 
+            <div
               key={index}
               data-index={index}
               className={`project-card group relative overflow-hidden p-8 md:p-12 bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 rounded-3xl hover:border-white/20 transition-all duration-500 ${
                 visibleProjects.includes(index)
-                  ? 'opacity-100 translate-x-0'
-                  : 'opacity-0 -translate-x-10'
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 -translate-x-10"
               }`}
               style={{
-                transition: `all 0.8s ease-out ${index * 0.2}s`
+                transition: `all 0.8s ease-out ${index * 0.2}s`,
               }}
             >
-              <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${project.gradient} opacity-10 blur-3xl group-hover:opacity-20 transition-opacity duration-500`}></div>
-              
+              <div
+                className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${project.gradient} opacity-10 blur-3xl group-hover:opacity-20 transition-opacity duration-500`}
+              ></div>
+
               <div className="relative">
                 <div className="flex flex-wrap justify-between items-start mb-6">
                   <div>
-                    <h4 className="text-4xl font-bold text-white mb-2">{project.title}</h4>
-                    <p className="text-gray-500 uppercase tracking-wider text-sm">{project.category}</p>
+                    <h4 className="text-4xl font-bold text-white mb-2">
+                      {project.title}
+                    </h4>
+                    <p className="text-gray-500 uppercase tracking-wider text-sm">
+                      {project.category}
+                    </p>
                   </div>
                   {project.link && (
-                    <a 
-                      href={project.link} 
-                      target="_blank" 
+                    <a
+                      href={project.link}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="group/link flex items-center gap-2 px-6 py-3 bg-white text-black rounded-full hover:bg-gray-100 transition-all"
                     >
                       <span className="font-semibold">View Code</span>
-                      <ExternalLink size={18} className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
+                      <ExternalLink
+                        size={18}
+                        className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform"
+                      />
                     </a>
                   )}
                 </div>
@@ -711,7 +824,7 @@ function Projects() {
 
                 <div className="flex flex-wrap gap-3 mb-8">
                   {project.tech.map((tech, i) => (
-                    <span 
+                    <span
                       key={i}
                       className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-gray-300 text-sm"
                     >
@@ -739,9 +852,9 @@ function Projects() {
 
 // Contact Component
 function Contact() {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [isTyping, setIsTyping] = useState(false);
-  const fullEmail = 'pallavibhasme13@gmail.com';
+  const fullEmail = "pallavibhasme13@gmail.com";
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -765,7 +878,7 @@ function Contact() {
       { threshold: 0.5 }
     );
 
-    const contactSection = document.getElementById('contact');
+    const contactSection = document.getElementById("contact");
     if (contactSection) observer.observe(contactSection);
 
     return () => observer.disconnect();
@@ -868,16 +981,26 @@ function Footer() {
           </div>
 
           <div className="flex gap-4">
-            <a href="https://github.com/pallavibhasme" target="_blank" rel="noopener noreferrer" 
-               className="p-2 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
+            <a
+              href="https://github.com/pallavibhasme"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
+            >
               <Github size={20} className="text-gray-400" />
             </a>
-            <a href="https://linkedin.com/in/pallavi-bhasme-653bb8201" target="_blank" rel="noopener noreferrer"
-               className="p-2 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
+            <a
+              href="https://linkedin.com/in/pallavi-bhasme-653bb8201"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
+            >
               <Linkedin size={20} className="text-gray-400" />
             </a>
-            <a href="mailto:pallavibhasme13@gmail.com"
-               className="p-2 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
+            <a
+              href="mailto:pallavibhasme13@gmail.com"
+              className="p-2 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
+            >
               <Mail size={20} className="text-gray-400" />
             </a>
           </div>
