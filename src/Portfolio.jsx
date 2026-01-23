@@ -613,9 +613,9 @@ function Experience() {
 
             <div className="mb-6">
               <h4 className="text-3xl font-bold text-white mb-2">
-                Backend Developer Intern
+                Backend Developer
               </h4>
-              <p className="text-xl text-blue-400 mb-2">Teknosolve</p>
+              <p className="text-xl text-blue-400 mb-2">Netbugs Solutions & Services LLP</p>
               <p className="text-gray-500">July 2025 - Dec 2025 • Remote</p>
             </div>
 
