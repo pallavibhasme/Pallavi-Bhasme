@@ -1,16 +1,107 @@
-# React + Vite
+# 🌐 Pallavi Bhasme Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive portfolio website built with **React.js** and **Tailwind CSS** to showcase my skills, projects, experience, and professional journey as a Software Engineer. The portfolio highlights my technical expertise, featured projects, and provides an easy way to connect with me.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Portfolio Website:** https://pallavi-bhasme-abgm.vercel.app/
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* Modern and responsive UI
+* Interactive project showcase
+* Skills and technology section
+* Professional experience overview
+* Resume download option
+* Contact section for networking and opportunities
+* Mobile-friendly design
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* React.js
+* JavaScript
+* Tailwind CSS
+* Vite
+* React Icons
+* Vercel (Deployment)
+
+## 📂 Project Structure
+
+```text
+Pallavi-Bhasme/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── pages/
+│   ├── data/
+│   └── App.jsx
+├── package.json
+├── tailwind.config.js
+├── vite.config.js
+└── README.md
+```
+
+## ⚡ Installation & Setup
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/pallavibhasme/Pallavi-Bhasme.git
+```
+
+### Navigate to Project Folder
+
+```bash
+cd Pallavi-Bhasme
+```
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Start Development Server
+
+```bash
+npm run dev
+```
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+## 💼 About Me
+
+I am a passionate Software Engineer who enjoys building scalable and user-friendly web applications. I love working with modern frontend technologies and continuously learning new tools to improve my development skills.
+
+## 📌 Featured Projects
+
+The portfolio showcases various projects demonstrating:
+
+* Frontend Development
+* Responsive Web Design
+* React Applications
+* UI/UX Development
+* Full-Stack Development Concepts
+
+## 📫 Connect With Me
+
+* Portfolio: https://pallavi-bhasme-abgm.vercel.app/
+* GitHub: https://github.com/pallavibhasme
+* LinkedIn: https://www.linkedin.com/in/pallavi-bhasme-653bb8201/
+
+## 🤝 Contributing
+
+Contributions, suggestions, and feedback are welcome. Feel free to fork this repository and create a pull request.
+
+## ⭐ Support
+
+If you found this project useful, consider giving it a ⭐ on GitHub.
+
+---
+
+Made with ❤️ by **Pallavi Bhasme**
